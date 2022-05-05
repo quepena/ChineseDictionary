@@ -2,10 +2,10 @@ import Word from '../models/wordModel.js';
 import asyncHandler from 'express-async-handler';
 
 const createWord = asyncHandler(async(req, res) => {
-    const { themeId, character, pinyin, translation } = req.body;
+    const { themeId, character, utf8, pinyin, translation } = req.body;
 
     const newWord = await Word.create({
-        themeId, character, pinyin, translation
+        themeId, character, utf8, pinyin, translation
     })
 
     if(newWord) {
@@ -13,6 +13,7 @@ const createWord = asyncHandler(async(req, res) => {
             _id: newWord._id,
             themeId: newWord.themeId,
             character: newWord.character,
+            utf8: newWord.utf8,
             pinyin: newWord.pinyin,
             translation: newWord.translation,
         })
@@ -41,7 +42,6 @@ const getWords = asyncHandler(async (req, res) => {
             {
                 character: {
                     $regex: req.query.keyword,
-                    $options: 'i'
                 }
             },
             {
@@ -51,16 +51,21 @@ const getWords = asyncHandler(async (req, res) => {
                 }
             },
             {
-                translation: {
+                pinyinVariations: {
                     $regex: req.query.keyword,
                     $options: 'i'
                 }
             },
+            {
+                translation: {
+                    $regex: req.query.keyword,
+                    $options: 'i'
+                }
+            }
         ]
     } : {}
 
     const words = await Word.find({ ...keyword })
-
     res.json(words);
 })
 
