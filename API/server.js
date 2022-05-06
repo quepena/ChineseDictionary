@@ -1,10 +1,11 @@
 import express from "express"
+import dotenv from 'dotenv'
 import connectDB from "./config/db.js"
 import themeRoutes from "./routes/themeRoutes.js"
 import wordRoutes from "./routes/wordRoutes.js"
 import exampleRoutes from "./routes/exampleRoutes.js"
 
-require('dotenv').config()
+dotenv.config();
 
 connectDB()
 
