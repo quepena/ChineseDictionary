@@ -25,10 +25,10 @@ const getThemes = asyncHandler(async (req, res) => {
 })
 
 const createWord = asyncHandler(async(req, res) => {
-    const { themeId, character, utf8, pinyin, pinyinVariations, translation } = req.body;
+    const { themeId, character, pinyin, pinyinVariations, translation } = req.body;
 
     const newWord = await Word.create({
-        themeId, character, utf8, pinyin, pinyinVariations, translation
+        themeId, character, pinyin, pinyinVariations, translation
     })
 
     if(newWord) {
@@ -36,7 +36,6 @@ const createWord = asyncHandler(async(req, res) => {
             _id: newWord._id,
             themeId: newWord.themeId,
             character: newWord.character,
-            utf8: newWord.utf8,
             pinyin: newWord.pinyin,
             pinyinVariations: newWord.pinyinVariations,
             translation: newWord.translation,
