@@ -5,6 +5,7 @@ import themeRoutes from "./routes/themeRoutes.js"
 import wordRoutes from "./routes/wordRoutes.js"
 import exampleRoutes from "./routes/exampleRoutes.js"
 
+console.log(process.env.MONGO_URI)
 connectDB()
 
 const PORT = process.env.PORT || 8080
