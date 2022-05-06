@@ -19,8 +19,4 @@ app.use('/api/words', wordRoutes)
 
 app.use('/api/examples', exampleRoutes)
 
-app.get('/', async (req, res) => {
-    res.json({ status: true, message: "Our node.js app works" })
-})
-
 app.listen(PORT, () => console.log(`App listening at port ${PORT}`))
