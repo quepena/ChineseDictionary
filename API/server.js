@@ -3,6 +3,7 @@ import 'dotenv/config'
 import connectDB from "./config/db.js"
 import themeRoutes from "./routes/themeRoutes.js"
 import wordRoutes from "./routes/wordRoutes.js"
+import exampleRoutes from "./routes/exampleRoutes.js"
 
 connectDB()
 
@@ -15,6 +16,8 @@ app.use(express.json())
 app.use('/api/themes', themeRoutes)
 
 app.use('/api/words', wordRoutes)
+
+app.use('/api/examples', exampleRoutes)
 
 app.get('/', async (req, res) => {
     res.json({ status: true, message: "Our node.js app works" })
