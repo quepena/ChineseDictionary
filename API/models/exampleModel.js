@@ -9,9 +9,6 @@ const exampleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    utf8: {
-        type: String,
-    },
     pinyin: {
         type: String,
         required: true
@@ -20,10 +17,6 @@ const exampleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-})
-
-exampleSchema.pre('save', async function () {
-    this.utf8 = await encodeURI(this.characters)
 })
 
 const Example = mongoose.model('Examples', exampleSchema);
