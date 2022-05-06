@@ -1,13 +1,16 @@
 import mongoose from 'mongoose'
 
 const exampleSchema = new mongoose.Schema({
-    charachterId: {
+    charactersIds: {
+        type: Array,
+        required: true
+    },
+    characters: {
         type: String,
         required: true
     },
-    charachters: {
+    utf8: {
         type: String,
-        required: true
     },
     pinyin: {
         type: String,
@@ -17,6 +20,10 @@ const exampleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+})
+
+exampleSchema.pre('save', async function () {
+    this.utf8 = await encodeURI(this.characters)
 })
 
 const Example = mongoose.model('Examples', exampleSchema);

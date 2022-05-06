@@ -6,10 +6,6 @@ const themeSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    // wordsQuantity: {
-    //     type: Number,
-    //     default: 0,
-    // }
 })
 
 const Theme = mongoose.model('Themes', themeSchema);
