@@ -31,7 +31,7 @@ const getWords = asyncHandler(async (req, res) => {
     } : {}
 
     const words = await Word.find({ ...keyword })
-    res.json({ results: words });
+    res.json({ items: words });
 })
 
 export { getWords };
