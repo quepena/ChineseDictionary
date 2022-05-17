@@ -16,7 +16,7 @@ const getExamplesByWords = asyncHandler(async (req, res) => {
         charactersIds: { $in: [req.params.wordId] }
     })
 
-    res.json(examples);
+    res.json({result: examples});
 })
 
 export { createExample, getExamplesByWords };
