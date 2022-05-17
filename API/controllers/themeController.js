@@ -21,7 +21,7 @@ const getThemesById = asyncHandler(async (req, res) => {
 const getThemes = asyncHandler(async (req, res) => {
     const themes = await Theme.find({})
 
-    res.json(themes);
+    res.json({result: themes});
 })
 
 const createWord = asyncHandler(async(req, res) => {
