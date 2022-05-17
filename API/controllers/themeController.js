@@ -58,7 +58,7 @@ const getWordById = asyncHandler(async (req, res) => {
             wordId: req.params.wordId
         });
 
-    res.json(word);
+    res.json({result: word});
 })
 
 export { createTheme, getThemesById, getThemes, createWord, getWordsByTheme, getWordById };
