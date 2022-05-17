@@ -1,10 +1,10 @@
 import express from 'express'
-import { getExamplesByWords } from '../controllers/exampleController.js';
-import { getWords, getWordById } from '../controllers/wordController.js';
+import { getWords, getWordById, getExampleByWord } from '../controllers/wordController.js';
 
 const router = express.Router();
 
 router.route('/search').get(getWords)
-router.route('/:wordId').get(getWordById, getExamplesByWords)
+router.route('/:wordId').get(getWordById)
+router.route('/:wordId/examples').get(getExampleByWord)
 
 export default router;

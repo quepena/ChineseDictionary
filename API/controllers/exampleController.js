@@ -11,12 +11,4 @@ const createExample = asyncHandler(async(req, res) => {
     res.json(newExample)
 })
 
-const getExamplesByWords = asyncHandler(async (req, res) => {
-    const examples = await Example.find({
-        charactersIds: { $in: [req.params.wordId] }
-    })
-
-    res.json({result: examples});
-})
-
-export { createExample, getExamplesByWords };
+export { createExample };
