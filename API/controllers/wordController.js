@@ -1,4 +1,5 @@
 import Word from '../models/wordModel.js';
+import Example from "../models/exampleModel.js";
 import asyncHandler from 'express-async-handler';
 
 const getWords = asyncHandler(async (req, res) => {
@@ -35,11 +36,17 @@ const getWords = asyncHandler(async (req, res) => {
 })
 
 const getWordById = asyncHandler(async (req, res) => {
-    const word = await Word.find({
-        wordId: req.params.wordId
-    });
+    const word = await Word.findById(req.params.wordId);
 
     res.json({result: word});
 })
 
-export { getWords, getWordById };
+const getExampleByWord = asyncHandler(async (req, res) => {
+    const examples = await Example.find({
+        charactersIds: { $in: [req.params.wordId] }
+    })
+
+    res.json({result: examples});
+})
+
+export { getWords, getWordById, getExampleByWord };
