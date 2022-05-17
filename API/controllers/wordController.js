@@ -35,9 +35,11 @@ const getWords = asyncHandler(async (req, res) => {
 })
 
 const getWordById = asyncHandler(async (req, res) => {
-    const word = await Word.findById(req.params.id);
+    const word = await Word.find({
+        wordId: req.params.wordId
+    });
 
-    res.json(word);
+    res.json({result: word});
 })
 
 export { getWords, getWordById };
