@@ -55,6 +55,7 @@ const getWordsByTheme = asyncHandler(async (req, res) => {
 
 const getWordById = asyncHandler(async (req, res) => {
     const word = await Word.find({
+            themeId: req.params.themeId,
             wordId: req.params.wordId
         });
 
