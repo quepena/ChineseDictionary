@@ -21,7 +21,29 @@ const getThemesById = asyncHandler(async (req, res) => {
 const getThemes = asyncHandler(async (req, res) => {
     const themes = await Theme.find({})
 
+    for (let i = 0; i < themes.length; i++) {
+        if(themes[i].quantity == 0) {
+            let count = await Word.countDocuments({
+                themeId: themes[i].id
+            })
+
+            await Theme.findOneAndUpdate({_id: themes[i].id}, {quantity: count}, { new: true });
+        }
+    }
+
     res.json({result: themes});
+})
+
+const getQuantityThemes = asyncHandler(async (req, res) => {
+    const themes = await Theme.find({})
+
+    for (let i = 0; i < themes.length; i++) {
+        const count = await Word.countDocuments({
+            themeId: themes[i].id
+        })
+    }
+
+    res.json({result: count});
 })
 
 const createWord = asyncHandler(async(req, res) => {
