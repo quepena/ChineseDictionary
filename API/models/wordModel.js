@@ -13,7 +13,13 @@ const wordSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    pinyinWithoutSpaces: {
+        type: String
+    },
     pinyinVariations: {
+        type: String,
+    },
+    pinyinVariationsWithoutSpaces: {
         type: String,
     },
     translation: {
@@ -65,6 +71,9 @@ wordSchema.pre('save', async function () {
         }
     }
     this.pinyin = pinyinSaved
+
+    this.pinyinWithoutSpaces = this.pinyin.replace(/ /g, '')
+    this.pinyinVariationsWithoutSpaces = this.pinyinVariations.replace(/ /g, '')
 })
 
 const Word = mongoose.model('Words', wordSchema);
