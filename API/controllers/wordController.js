@@ -17,7 +17,19 @@ const getWords = asyncHandler(async (req, res) => {
                 }
             },
             {
+                pinyinWithoutSpaces: {
+                    $regex: req.query.keyword,
+                    $options: 'i'
+                }
+            },
+            {
                 pinyinVariations: {
+                    $regex: req.query.keyword,
+                    $options: 'i'
+                }
+            },
+            {
+                pinyinVariationsWithoutSpaces: {
                     $regex: req.query.keyword,
                     $options: 'i'
                 }
