@@ -14,11 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChineseDictionary">
         <activity
-            android:name="com.example.chinesedictionary.WordsActivity"
+            android:name=".activities.FlashcardActivity"
             android:exported="false" />
-        <activity android:name="com.example.chinesedictionary.DetailActivity" />
         <activity
-            android:name="com.example.chinesedictionary.MainActivity"
+            android:name=".activities.FavoriteListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WordsActivity"
+            android:exported="false" />
+        <activity android:name=".activities.DetailActivity" />
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

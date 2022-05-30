@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <EditText
         android:id="@+id/searchEditText"
@@ -15,6 +15,18 @@
         android:hint="Search by character, pinyin or translation"
         app:layout_constraintTop_toTopOf="parent"
         android:textAlignment="center"/>
+
+
+    <Button
+        android:id="@+id/btn"
+        android:text="favourite list"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
