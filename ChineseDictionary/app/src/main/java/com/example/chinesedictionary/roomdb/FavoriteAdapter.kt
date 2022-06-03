@@ -19,8 +19,6 @@ class FavoriteAdapter(private val favoriteLists: List<FavoriteList>?, var contex
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
         val fl = favoriteLists!!.get(i)
-        Log.i("fl", fl.character.toString())
-//            viewHolder.tv.setText(fl.character)
         viewHolder.tv.text = fl.character
         viewHolder.pinyin.text = fl.pinyin
         viewHolder.translation.text = fl.translation

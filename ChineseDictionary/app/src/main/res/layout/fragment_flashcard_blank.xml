@@ -7,7 +7,6 @@
     tools:context=".activities.FlashcardActivity">
 
     <TextView
-        android:background="#039529"
         android:id="@+id/wordCharacter"
         android:layout_width="150dp"
         android:layout_height="150dp"
