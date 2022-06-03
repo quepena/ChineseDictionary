@@ -5,36 +5,37 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
-import com.example.chinesedictionary.*
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.chinesedictionary.ConnectionLiveData
+import com.example.chinesedictionary.R
 import com.example.chinesedictionary.adapters.ThemeAdapter
 import com.example.chinesedictionary.adapters.WordAdapter
 import com.example.chinesedictionary.databinding.ActivityMainBinding
+import com.example.chinesedictionary.fragments.FragmentFlashcardBlank
+import com.example.chinesedictionary.fragments.FragmentFlashcardReveal
 import com.example.chinesedictionary.models.MainModel
 import com.example.chinesedictionary.models.WordsModel
 import com.example.chinesedictionary.retrofit.ApiService
 import com.example.chinesedictionary.roomdb.FavoriteDatabase
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.reflect.Array.newInstance
 
 class MainActivity : AppCompatActivity() {
-    private val TAG: String = "MainActivity"
-
     private lateinit var connectionLiveData: ConnectionLiveData
-
     private lateinit var binding : ActivityMainBinding
-
     private lateinit var themeAdapter: ThemeAdapter
-
     private lateinit var wordAdapter: WordAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar!!.title = "Chinese Dictionary"
+
+        binding.vpager.adapter = MyAdapter(this)
+
+        TabLayoutMediator(binding.tabLayout, binding.vpager) { tab, pos ->
+            val position = pos + 1
+            tab.text = "TAB $position"
+        }.attach()
 
         favoriteDatabase = Room.databaseBuilder(
             applicationContext,
@@ -162,7 +170,6 @@ class MainActivity : AppCompatActivity() {
         ApiService.endpoint.data()
             .enqueue(object : Callback<MainModel> {
                 override fun onFailure(call: Call<MainModel>, t: Throwable) {
-                    printLog( t.toString() )
                     showLoading(false)
                 }
                 override fun onResponse(
@@ -181,7 +188,6 @@ class MainActivity : AppCompatActivity() {
         ApiService.endpoint.dataSearch(keyword)
             .enqueue(object : Callback<WordsModel> {
                 override fun onFailure(call: Call<WordsModel>, t: Throwable) {
-                    printLog( t.toString() )
                     showLoading(false)
                 }
                 override fun onResponse(
@@ -196,10 +202,6 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    private fun printLog(message: String) {
-        Log.d(TAG, message)
-    }
-
     private fun showLoading(loading: Boolean) {
         when(loading) {
             true -> binding.progressBar.visibility = View.VISIBLE
@@ -208,7 +210,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showResult(results: MainModel) {
-        for (result in results.result) printLog( "title: ${result.name}" )
         themeAdapter.setData( results.result )
     }
 
@@ -218,5 +219,12 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var favoriteDatabase: FavoriteDatabase? = null
+    }
+
+    class MyAdapter(fragment: AppCompatActivity) : FragmentStateAdapter(fragment) {
+
+        override fun getItemCount() = list.size
+        private val list = arrayListOf(FragmentFlashcardBlank.newInstance(0), FragmentFlashcardReveal.newInstance(1))
+        override fun createFragment(position: Int) = list[position]
     }
 }

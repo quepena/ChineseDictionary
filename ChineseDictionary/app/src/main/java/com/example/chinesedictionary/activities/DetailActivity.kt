@@ -17,7 +17,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class DetailActivity : AppCompatActivity() {
     private val TAG: String = "DetailActivity"
 
@@ -53,7 +52,6 @@ class DetailActivity : AppCompatActivity() {
             ApiService.endpoint.dataWord(intentId)
                 .enqueue(object : Callback<WordModel> {
                     override fun onFailure(call: Call<WordModel>, t: Throwable) {
-                        printLog(t.toString())
                         showLoading(false)
                     }
 
@@ -71,7 +69,6 @@ class DetailActivity : AppCompatActivity() {
             ApiService.endpoint.dataExamples(intentId)
                 .enqueue(object : Callback<ExampleModel> {
                     override fun onFailure(call: Call<ExampleModel>, t: Throwable) {
-                        printLog(t.toString())
                         showLoading(false)
                     }
 
@@ -88,10 +85,6 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun printLog(message: String) {
-        Log.d(TAG, message)
-    }
-
     private fun showLoading(loading: Boolean) {
         when(loading) {
             true -> binding.progressBar.visibility = View.VISIBLE
@@ -106,7 +99,6 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showExampleResult(results: ExampleModel) {
-        for (result in results.result) printLog( "title: ${result.characters}" )
         exampleAdapter.setData( results.result )
     }
 

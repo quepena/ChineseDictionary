@@ -2,84 +2,62 @@ package com.example.chinesedictionary.activities
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
 import com.example.chinesedictionary.R
 import com.example.chinesedictionary.databinding.ActivityFlashcardBinding
 import com.example.chinesedictionary.fragments.FragmentFlashcardBlank
 import com.example.chinesedictionary.fragments.FragmentFlashcardReveal
 
-
 class FlashcardActivity : AppCompatActivity() {
-//    lateinit var button: Button
     lateinit var binding: ActivityFlashcardBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFlashcardBinding.inflate(layoutInflater)
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-//        val intentId = intent.getStringExtra("intent_id")
         val intentCharacter = intent.getStringExtra("intent_character")
-
-
         val intentPinyin = intent.getStringExtra("intent_pinyin")
         val intentTranslation = intent.getStringExtra("intent_translation")
 
-        Log.i("getting", intent.getStringExtra("intent_character").toString())
-        val bundle = Bundle()
-        bundle.putString("intent_character", intentCharacter)
-//        bundle.putString("intent_pinyin", intentPinyin)
-//        bundle.putString("intent_translation", intentTranslation)
+        val ft = supportFragmentManager.beginTransaction()
 
-        val fragmentManager = supportFragmentManager
+        val frg = FragmentFlashcardBlank()
+        val frg2 = FragmentFlashcardReveal()
 
-        val fragmentBlank = FragmentFlashcardBlank()
-        fragmentBlank.setArguments(bundle)
+        val bdl = Bundle()
+        bdl.putString("intent_character", intentCharacter)
+        bdl.putString("intent_pinyin", intentPinyin)
+        bdl.putString("intent_translation", intentTranslation)
+        frg.setArguments(bdl)
+        frg2.setArguments(bdl)
 
-        Log.i("bnaakk", fragmentBlank.toString())
-
-        val fragmentReveal = FragmentFlashcardReveal()
-        fragmentReveal.setArguments(bundle)
-
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragmentContainerView, fragmentBlank)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
-
-
-//        val transaction = supportFragmentManager.beginTransaction()
-//        transaction.replace(R.id.fragmentContainerView2, fragmentBlank)
-//        transaction.commit()
+        ft.replace(R.id.fragmentContainerView, frg)
+        ft.addToBackStack(null)
+        ft.commit()
 
         setContentView(binding.root)
 
-        binding?.buttonFlsh?.setOnClickListener {
-//            setContentView(R.layout.activity_flashcard_reveal)
-
-            fragmentTransaction.add(R.id.fragmentContainerView2, fragmentReveal)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
+        binding.buttonFlsh.setOnClickListener {
+            val ft = supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fragmentContainerView, frg2)
+            ft.addToBackStack(null)
+            ft.commit()
         }
+    }
 
-//        var click = 0
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
-//        binding.buttonFlsh.setOnClickListener{
-//            if(click == 0) {
-////                val transaction = supportFragmentManager.beginTransaction()
-////                transaction.replace(fragmentBlank, fragmentReveal).commit()
-////                transaction.replace(R.id.fragment_layout_id, fragment)
-////                setContentView(R.layout.activity_flashcard)
-//                click += 1
-//            } else {
-//                setContentView(R.layout.activity_flashcard_reveal)
-//                click = 0
-//            }
-//        }
-
-//        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//            setContentView(R.layout.activity_main_landscape)
-//        }
-//        else {
-//            setContentView(R.layout.activity_main)
-//        }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        return true
     }
 }

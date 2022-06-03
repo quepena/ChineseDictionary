@@ -16,9 +16,8 @@
             android:id="@+id/button_flsh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#9999"
-            android:contentDescription="@string/app_name"/>
-<!--            android:background="?android:attr/selectableItemBackground"-->
+            android:contentDescription="@string/app_name"
+            android:background="?android:attr/selectableItemBackground"/>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
@@ -26,6 +25,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_flashcard_blank" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView2"
+            android:name="com.example.chinesedictionary.fragments.FragmentFlashcardReveal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_flashcard_reveal" />
 
     </androidx.cardview.widget.CardView>
 

@@ -19,17 +19,14 @@ import com.example.chinesedictionary.adapters.WordAdapter
 import com.example.chinesedictionary.databinding.ActivityWordsBinding
 import com.example.chinesedictionary.models.WordsModel
 import com.example.chinesedictionary.retrofit.ApiService
+import com.google.android.material.tabs.TabLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class WordsActivity : AppCompatActivity() {
-    private val TAG: String = "WordsActivity"
-
     private lateinit var connectionLiveData: ConnectionLiveData
-
     private lateinit var binding : ActivityWordsBinding
-
     private lateinit var wordAdapter: WordAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +36,7 @@ class WordsActivity : AppCompatActivity() {
         var intentTitle = intent.getStringExtra("intent_title")
         val intentId = intent.getStringExtra("intent_id")
         supportActionBar!!.title = intentTitle
-        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
         var network = isNetworkAvailable(this)
 
@@ -112,7 +109,6 @@ class WordsActivity : AppCompatActivity() {
             ApiService.endpoint.dataWords(intentId)
                 .enqueue(object : Callback<WordsModel> {
                     override fun onFailure(call: Call<WordsModel>, t: Throwable) {
-                        printLog(t.toString())
                         showLoading(false)
                     }
 
@@ -130,10 +126,6 @@ class WordsActivity : AppCompatActivity() {
         }
     }
 
-    private fun printLog(message: String) {
-        Log.d(TAG, message)
-    }
-
     private fun showLoading(loading: Boolean) {
         when(loading) {
             true -> binding.progressBar.visibility = View.VISIBLE
@@ -142,7 +134,6 @@ class WordsActivity : AppCompatActivity() {
     }
 
     private fun showResult(results: WordsModel) {
-        for (result in results.result) printLog( "title: ${result.character}" )
         wordAdapter.setData( results.result )
     }
 
