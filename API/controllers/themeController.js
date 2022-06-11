@@ -19,7 +19,7 @@ const getThemesById = asyncHandler(async (req, res) => {
 })
 
 const getThemes = asyncHandler(async (req, res) => {
-    const themes = await Theme.find({})
+    const themes = await Theme.find({}).sort('name')
 
     for (let i = 0; i < themes.length; i++) {
         let count = await Word.countDocuments({
@@ -63,5 +63,16 @@ const getWordsByTheme = asyncHandler(async (req, res) => {
     res.json({ result: words });
 })
 
+const deleteTheme = asyncHandler(async (req, res) => {
+    const theme = await Theme.findById(req.params.themeId);
 
-export { createTheme, getThemesById, getThemes, createWord, getWordsByTheme };
+    if (theme) {
+        await theme.remove();
+        res.json({ messsage: 'Theme removed' })
+    } else {
+        res.status(404).json({ message: 'Theme not found' });
+    }
+})
+
+
+export { createTheme, getThemesById, getThemes, createWord, getWordsByTheme, deleteTheme };

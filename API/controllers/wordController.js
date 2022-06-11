@@ -61,4 +61,15 @@ const getExampleByWord = asyncHandler(async (req, res) => {
     res.json({result: examples});
 })
 
-export { getWords, getWordById, getExampleByWord };
+const deleteWord = asyncHandler(async (req, res) => {
+    const word = await Word.findById(req.params.wordId);
+
+    if (word) {
+        await word.remove();
+        res.json({ messsage: 'Word removed' })
+    } else {
+        res.status(404).json({ message: 'Word not found' });
+    }
+})
+
+export { getWords, getWordById, getExampleByWord, deleteWord };

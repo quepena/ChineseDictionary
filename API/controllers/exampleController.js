@@ -11,4 +11,15 @@ const createExample = asyncHandler(async(req, res) => {
     res.json(newExample)
 })
 
-export { createExample };
+const deleteExample = asyncHandler(async (req, res) => {
+    const example = await Example.findById(req.params.exampleId);
+
+    if (example) {
+        await example.remove();
+        res.json({ messsage: 'Example removed' })
+    } else {
+        res.status(404).json({ message: 'Example not found' });
+    }
+})
+
+export { createExample, deleteExample };
