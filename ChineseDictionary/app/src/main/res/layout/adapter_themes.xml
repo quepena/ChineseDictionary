@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginBottom="1dp"
+    android:layout_marginBottom="5dp"
     android:background="@android:color/white"
     >
 
     <TextView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:id="@+id/themeName"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:autoSizeMaxTextSize="30sp"
-        android:autoSizeMinTextSize="10sp"
-        android:autoSizeTextType="uniform"
+        android:textSize="30sp"
         android:text="Nature"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
-        android:id="@+id/themeQuantity"
         android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:text="50"
-        android:textAlignment="center"
+        android:layout_height="130dp"
+        android:id="@+id/themeQuantity"
         android:textSize="28sp"
+        android:text="50"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
