@@ -46,10 +46,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.vpager.adapter = MyAdapter(this)
 
-        TabLayoutMediator(binding.tabLayout, binding.vpager) { tab, pos ->
-            val position = pos + 1
-            tab.text = "TAB $position"
-        }.attach()
+//        TabLayoutMediator(binding.tabLayout, binding.vpager) { tab, pos ->
+//            val position = pos + 1
+//            tab.text = "TAB $position"
+//        }.attach()
 
         favoriteDatabase = Room.databaseBuilder(
             applicationContext,

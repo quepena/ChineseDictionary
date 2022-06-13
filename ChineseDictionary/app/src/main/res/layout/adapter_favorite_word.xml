@@ -8,20 +8,6 @@
     android:background="@android:color/white"
     >
 
-    <Button
-        android:id="@+id/favbtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/ic_baseline_star_outline_24"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/wordCharacter"
         android:layout_width="130dp"
