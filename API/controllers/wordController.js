@@ -44,7 +44,12 @@ const getWords = asyncHandler(async (req, res) => {
     } : {}
 
     const words = await Word.find({ ...keyword })
-    res.json({ result: words });
+
+    if((words && !words.length)) {
+        res.json({result: "No words found"})
+    } else {
+        res.json({ result: words })
+    }
 })
 
 const getWordById = asyncHandler(async (req, res) => {
