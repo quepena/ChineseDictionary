@@ -8,5 +8,6 @@ data class WordsModel (
                        val character: String,
                        val pinyin: String,
                        val translation: String,
+                       val text: String,
     )
 }

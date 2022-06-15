@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.chinesedictionary.ConnectionLiveData
-import com.example.chinesedictionary.R
 import com.example.chinesedictionary.adapters.ThemeAdapter
 import com.example.chinesedictionary.adapters.WordAdapter
 import com.example.chinesedictionary.databinding.ActivityMainBinding
@@ -25,12 +24,9 @@ import com.example.chinesedictionary.models.MainModel
 import com.example.chinesedictionary.models.WordsModel
 import com.example.chinesedictionary.retrofit.ApiService
 import com.example.chinesedictionary.roomdb.FavoriteDatabase
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.reflect.Array.newInstance
 
 class MainActivity : AppCompatActivity() {
     private lateinit var connectionLiveData: ConnectionLiveData
@@ -94,14 +90,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.btn.setOnClickListener(View.OnClickListener {
+        binding.btn.setOnClickListener {
             startActivity(
                 Intent(
                     this@MainActivity,
                     FavoriteListActivity::class.java
                 )
             )
-        })
+        }
     }
 
     fun isNetworkAvailable(context: Context?): Boolean {
@@ -192,11 +188,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 override fun onResponse(
                     call: Call<WordsModel>,
-                    response: Response<WordsModel>
+                    response: Response<WordsModel>,
                 ) {
                     showLoading(false)
                     if (response.isSuccessful) {
-                        showResultSearch( response.body()!! )
+                        showResultSearch( response.body()!!)
                     }
                 }
             })

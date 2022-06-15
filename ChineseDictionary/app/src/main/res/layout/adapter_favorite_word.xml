@@ -28,7 +28,7 @@
         android:layout_height="130dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="13dp"
-        android:text=""
+        android:text="一"
         android:textAlignment="center"
         android:autoSizeMaxTextSize="80sp"
         android:autoSizeMinTextSize="30sp"
@@ -47,7 +47,7 @@
         android:autoSizeMinTextSize="30sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
-        android:text=""
+        android:text="yī"
         android:textAlignment="center"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,28 +65,12 @@
         android:ellipsize="none"
         android:maxLines="100"
         android:scrollHorizontally="false"
-        android:text=""
+        android:text="num./adj. one, 1; same; whole; whole-hearted"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/error_text"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="13dp"
-        android:text=""
-        android:textAlignment="center"
-        android:autoSizeMaxTextSize="150sp"
-        android:autoSizeMinTextSize="20sp"
-        android:autoSizeStepGranularity="2sp"
-        android:autoSizeTextType="uniform"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

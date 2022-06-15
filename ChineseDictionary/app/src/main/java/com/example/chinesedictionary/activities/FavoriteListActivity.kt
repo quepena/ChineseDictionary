@@ -2,8 +2,10 @@ package com.example.chinesedictionary.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,38 +22,17 @@ class FavoriteListActivity : AppCompatActivity() {
         binding = ActivityFavoriteListBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_list)
+        val button: Button = findViewById(R.id.btn_fav)
         rv = findViewById<View>(R.id.recyclerView) as RecyclerView
         rv!!.setHasFixedSize(true)
         rv!!.layoutManager = LinearLayoutManager(this)
         favData
 
-        var intentTitle = intent.getStringExtra("intent_title")
-        supportActionBar!!.title = intentTitle
-        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "Favorites"
 
-//        binding.btn3.setOnClickListener(View.OnClickListener {
-//            startActivity(
-//                Intent(
-//                    this@FavoriteListActivity,
-//                    MainActivity::class.java
-//                )
-//            )
-//        })
-        binding.btn3.setOnClickListener(View.OnClickListener {
-            val intent = Intent(Intent.ACTION_MAIN)
-            intent.addCategory(Intent.CATEGORY_HOME)
-            startActivity(intent)
-        })
-
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
+        button.setOnClickListener {
+            finish()
         }
-        return super.onOptionsItemSelected(item)
     }
 
     private val favData: Unit

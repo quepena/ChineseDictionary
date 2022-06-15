@@ -37,6 +37,8 @@ class FlashcardActivity : AppCompatActivity() {
         ft.addToBackStack(null)
         ft.commit()
 
+        supportActionBar!!.title = intentCharacter
+
         setContentView(binding.root)
 
         binding.buttonFlsh.setOnClickListener {
@@ -45,6 +47,10 @@ class FlashcardActivity : AppCompatActivity() {
             ft.addToBackStack(null)
             ft.commit()
         }
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

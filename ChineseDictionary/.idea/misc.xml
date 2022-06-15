@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16458333333333333" />
         <entry key="app/src/main/res/layout/activity_words.xml" value="0.16458333333333333" />
         <entry key="app/src/main/res/layout/adapter_examples.xml" value="0.16458333333333333" />
+        <entry key="app/src/main/res/layout/adapter_favorite_word.xml" value="0.16458333333333333" />
         <entry key="app/src/main/res/layout/adapter_movie.xml" value="0.16458333333333333" />
         <entry key="app/src/main/res/layout/adapter_themes.xml" value="0.16354166666666667" />
         <entry key="app/src/main/res/layout/adapter_word.xml" value="0.16458333333333333" />

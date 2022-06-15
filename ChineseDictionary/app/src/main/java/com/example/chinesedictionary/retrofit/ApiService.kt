@@ -1,5 +1,6 @@
 package com.example.chinesedictionary.retrofit
 
+import android.widget.Toast
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,7 +18,6 @@ object ApiService {
                 .build()
 
             return retrofit.create(ApiEndpoint::class.java)
-
         }
 
     private val client: OkHttpClient

@@ -1,9 +1,6 @@
 package com.example.chinesedictionary.retrofit
 
-import com.example.chinesedictionary.models.ExampleModel
-import com.example.chinesedictionary.models.MainModel
-import com.example.chinesedictionary.models.WordModel
-import com.example.chinesedictionary.models.WordsModel
+import com.example.chinesedictionary.models.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
