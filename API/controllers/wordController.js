@@ -46,7 +46,7 @@ const getWords = asyncHandler(async (req, res) => {
     const words = await Word.find({ ...keyword })
 
     if((words && !words.length)) {
-        res.json({result: "No words found"})
+        res.json({result: [{"text": "No words found"}]})
     } else {
         res.json({ result: words })
     }
