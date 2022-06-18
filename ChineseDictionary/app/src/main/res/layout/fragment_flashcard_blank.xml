@@ -8,11 +8,14 @@
 
     <TextView
         android:id="@+id/wordCharacter"
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="150dp"
         android:text=""
+        android:autoSizeMaxTextSize="80sp"
+        android:autoSizeMinTextSize="30sp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
         android:textAlignment="center"
-        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/characters_guidline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
