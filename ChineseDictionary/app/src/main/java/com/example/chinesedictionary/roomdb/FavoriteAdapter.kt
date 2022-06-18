@@ -13,7 +13,7 @@ class FavoriteAdapter(private val favoriteLists: List<FavoriteList>?, var contex
     RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val view: View =
-            LayoutInflater.from(viewGroup.context).inflate(R.layout.adapter_word, viewGroup, false)
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.adapter_favorite_word, viewGroup, false)
         return ViewHolder(view)
     }
 

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginBottom="5dp"
+    android:layout_marginBottom="1dp"
     android:background="@android:color/white"
     >
 
@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/wordCharacter"
-        android:layout_width="130dp"
+        android:layout_width="150dp"
         android:layout_height="130dp"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="13dp"
@@ -34,6 +34,7 @@
         android:autoSizeMinTextSize="30sp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
+        android:maxLines="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

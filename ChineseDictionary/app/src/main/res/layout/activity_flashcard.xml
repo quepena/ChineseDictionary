@@ -29,8 +29,8 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView2"
             android:name="com.example.chinesedictionary.fragments.FragmentFlashcardReveal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             tools:layout="@layout/fragment_flashcard_reveal" />
 
     </androidx.cardview.widget.CardView>
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="20dp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"

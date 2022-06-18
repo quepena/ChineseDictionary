@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/drawable/custom_button.xml" value="0.2265" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/drawable/ic_baseline_star_outline_24.xml" value="0.2265" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.2265" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/activity_detail.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/activity_favorite_list.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/activity_flashcard.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/activity_flashcard_reveal.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/activity_words.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/adapter_examples.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/adapter_favorite_word.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/adapter_themes.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/adapter_word.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/fragment_flashcard_blank.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/123/AndroidStudioProjects/ChineseDictionary/ChineseDictionary/app/src/main/res/layout/fragment_flashcard_reveal.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/drawable/ic_baseline_star_outline_24.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.1775" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.16458333333333333" />
@@ -28,5 +43,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>
