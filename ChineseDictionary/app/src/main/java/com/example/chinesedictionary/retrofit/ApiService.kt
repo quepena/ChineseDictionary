@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiService {
 
-    var BASE_URL:String="https://chinese-dictionary-api.herokuapp.com/api/"
+    var BASE_URL:String="https://expressjs-mongoose-production-ffb4.up.railway.app/api/"
     val endpoint: ApiEndpoint
         get() {
             val retrofit = Retrofit.Builder()
